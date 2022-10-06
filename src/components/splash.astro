@@ -3,6 +3,7 @@ import { generateImage } from "astro-eleventy-img";
 import { Icon } from "astro-icon";
 import Starfield from "~/components/starfield.astro";
 import HeroImage from "~/components/hero-image.astro";
+import BokehBg from "./bokeh-bg.astro";
 
 const widths = [450, 800];
 const sizes = "(min-width: 640px) 42vw, 67vw";
@@ -20,7 +21,8 @@ const pngSrcset = png.map(({ srcset }) => srcset).join(",");
 ---
 
 <section class="relative h-full bg-black">
-  <Starfield />
+  <BokehBg />
+  <!-- <Starfield /> -->
   <div id="splash-bg-fallback" class="absolute inset-0 hidden opacity-40">
     <HeroImage />
   </div>
@@ -28,9 +30,9 @@ const pngSrcset = png.map(({ srcset }) => srcset).join(",");
     <h2
       class="flex flex-col self-end gap-2 sm:gap-4 sm:self-auto sm:justify-self-end"
     >
-      <Icon name="logo-text" class="h-4 text-white md:h-6 xl:h-12" />
+      <Icon name="logo-text" class="h-4 text-white sm:h-6 xl:h-12" />
       <div
-        class="font-extrabold tracking-tighter text-center text-4xl gradient-text"
+        class="font-extrabold tracking-tighter text-center text-xl sm:text-4xl gradient-text"
       >
         Video Editor
         <br /> Visual Designer
