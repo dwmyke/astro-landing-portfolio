@@ -4,6 +4,7 @@ import { Icon } from "astro-icon";
 import Starfield from "~/components/starfield.astro";
 import HeroImage from "~/components/hero-image.astro";
 import BokehBg from "./bokeh-bg.astro";
+import GradientBg from "./gradient-bg.astro";
 
 const widths = [450, 800];
 const sizes = "(min-width: 640px) 42vw, 67vw";
@@ -21,6 +22,7 @@ const pngSrcset = png.map(({ srcset }) => srcset).join(",");
 ---
 
 <section class="relative h-full bg-black">
+  <!-- <GradientBg /> -->
   <BokehBg />
   <!-- <Starfield /> -->
   <div id="splash-bg-fallback" class="absolute inset-0 hidden opacity-40">
@@ -30,9 +32,9 @@ const pngSrcset = png.map(({ srcset }) => srcset).join(",");
     <h2
       class="flex flex-col self-end gap-2 sm:gap-4 sm:self-auto sm:justify-self-end"
     >
-      <Icon name="logo-text" class="h-4 text-white sm:h-6 xl:h-12" />
+      <Icon name="logo-text" class="h-4 text-white sm:h-6 xl:h-12 drop-shadow-xl shadow-red-500 outline-red-500" />
       <div
-        class="font-extrabold tracking-tighter text-center text-xl sm:text-4xl gradient-text"
+        class="font-extrabold tracking-tighter text-center text-xl sm:text-4xl gradient-text drop-shadow-xl shadow-red-500 outline-red-500"
       >
         Video Editor
         <br /> Visual Designer
@@ -47,7 +49,7 @@ const pngSrcset = png.map(({ srcset }) => srcset).join(",");
       <source type="image/webp" srcset={webpSrcset} {sizes} />
       <source type="image/png" srcset={pngSrcset} {sizes} />
       <img
-        class="object-cover w-full h-full rounded-full"
+        class="object-cover w-full h-full rounded-full outline-red-500 border-y-yellow-700 border-1 bg-gradient-to-b from-orange-500 to-transparent bg-blend-color-burn"
         src={png[0].url}
         width={png[0].width}
         height={png[0].height}
@@ -76,8 +78,13 @@ const pngSrcset = png.map(({ srcset }) => srcset).join(",");
     }
   }
 
+  @keyframes wiggle {
+    0%, 100% { transform: rotate3d(0, 0, 0, -2deg); }
+    50% { transform: rotate3d(0, 0, 6, 1deg); }
+  }
+
   picture {
-    animation: float linear 2.5s infinite alternate;
+    animation: wiggle linear 2.5s infinite alternate;
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -85,7 +92,7 @@ const pngSrcset = png.map(({ srcset }) => srcset).join(",");
       @apply animate-none;
     }
 
-    :global(#starfield) {
+    :global(#bokeh-bg) {
       @apply hidden;
     }
 

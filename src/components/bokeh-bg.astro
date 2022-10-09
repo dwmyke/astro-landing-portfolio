@@ -1,118 +1,243 @@
-<div id="bokeh" class="absolute inset-0">
-<canvas id="bokeh-canvas" class="w-full h-full"></canvas>
+---
+import HeroImage from "./hero-image.astro";
+
+---
+
+
+<div id="bokeh-bg" class="absolute inset-0" >
+  
+  <div class="bokeh-background 
+  bg-[url('/assets/images/hero/gUy9Qw50YO-1200.jpeg')] 
+  bg-no-repeat 
+  bg-cover 
+  bg-indigo-900 
+  bg-blend-soft-light
+  backdrop-blur-3xl 
+  absolute 
+  inset-0">
+   
+    
+  
+  <span class="mix-blend-multiply"></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    
+  </div>
+  
 </div>
 
-<script>
-    const rand = function(min, max) {
-  return Math.random() * ( max - min ) + min;
-}
-
-let canvas = document.getElementById('bokeh-canvas');
-let ctx = canvas.getContext('2d');
-
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
-
-window.addEventListener('resize', function() {
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
-  ctx = canvas.getContext('2d');
-  ctx.globalCompositeOperation = 'lighter';
-});
-let backgroundColors = [ '#000', '#000' ];
-let colors = [
-  [ '#002aff', "#009ff2" ],
-  [ '#0054ff', '#27e49b' ], 
-  [ '#202bc5' ,'#873dcc' ]
-];
-let count = 70;
-let blur = [ 12, 70 ];
-let radius = [ 1, 120 ];
-
-ctx.clearRect( 0, 0, canvas.width, canvas.height );
-ctx.globalCompositeOperation = 'lighter';
-
-let grd = ctx.createLinearGradient(0, canvas.height, canvas.width, 0);
-grd.addColorStop(0, backgroundColors[0]);
-grd.addColorStop(1, backgroundColors[1]);
-ctx.fillStyle = grd;
-ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-let items = [];
-
-while(count--) {
-    let thisRadius = rand( radius[0], radius[1] );
-    let thisBlur = rand( blur[0], blur[1] );
-    let x = rand( -100, canvas.width + 100 );
-    let y = rand( -100, canvas.height + 100 );
-    let colorIndex = Math.floor(rand(0, 299) / 100);
-    let colorOne = colors[colorIndex][0];
-    let colorTwo = colors[colorIndex][1];
-    
-    ctx.beginPath();
-    ctx.filter = `blur(${thisBlur}px)`;
-    let grd = ctx.createLinearGradient(x - thisRadius / 2, y - thisRadius / 2, x + thisRadius, y + thisRadius);
-  
-    grd.addColorStop(0, colorOne);
-    grd.addColorStop(1, colorTwo);
-    ctx.fillStyle = grd;
-    ctx.fill();
-    ctx.arc( x, y, thisRadius, 0, Math.PI * 2 );
-    ctx.closePath();
-    
-    let directionX = Math.round(rand(-99, 99) / 100);
-    let directionY = Math.round(rand(-99, 99) / 100);
-  
-    items.push({
-      x: x,
-      y: y,
-      blur: thisBlur,
-      radius: thisRadius,
-      initialXDirection: directionX,
-      initialYDirection: directionY,
-      initialBlurDirection: directionX,
-      colorOne: colorOne,
-      colorTwo: colorTwo,
-      gradient: [ x - thisRadius / 2, y - thisRadius / 2, x + thisRadius, y + thisRadius ],
-    });
-}
-
-
-function changeCanvas(timestamp) {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-  let adjX = 2;
-  let adjY = 2;
-  let adjBlur = 1;
-  items.forEach(function(item) {
-    
-      if(item.x + (item.initialXDirection * adjX) >= canvas.width && item.initialXDirection !== 0 || item.x + (item.initialXDirection * adjX) <= 0 && item.initialXDirection !== 0) {
-        item.initialXDirection = item.initialXDirection * -1;
+  <style>
+    @keyframes move {
+      0%{
+        transform: translate3d(0,0,1px) rotate(360deg);
       }
-      if(item.y + (item.initialYDirection * adjY) >= canvas.height && item.initialYDirection !== 0 || item.y + (item.initialYDirection * adjY) <= 0 && item.initialYDirection !== 0) {
-        item.initialYDirection = item.initialYDirection * -1;
-      }
-      
-      if(item.blur + (item.initialBlurDirection * adjBlur) >= radius[1] && item.initialBlurDirection !== 0 || item.blur + (item.initialBlurDirection * adjBlur) <= radius[0] && item.initialBlurDirection !== 0) {
-        item.initialBlurDirection *= -1;
-      }
-    
-      item.x += (item.initialXDirection * adjX);
-      item.y += (item.initialYDirection * adjY);
-      item.blur += (item.initialBlurDirection * adjBlur);
-      ctx.beginPath();
-      ctx.filter = `blur(${item.blur}px)`;
-      let grd = ctx.createLinearGradient(item.gradient[0], item.gradient[1], item.gradient[2], item.gradient[3]);
-      grd.addColorStop(0, item.colorOne);
-      grd.addColorStop(1, item.colorTwo);
-      ctx.fillStyle = grd;
-      ctx.arc( item.x, item.y, item.radius, 0, Math.PI * 2 );
-      ctx.fill();
-      ctx.closePath();
-    
-  });
-  window.requestAnimationFrame(changeCanvas);
-  
-}
+    }
 
-window.requestAnimationFrame(changeCanvas);
-</script>
+    .bokeh-background span {
+      width: 20vmin;
+      height: 20vmin;
+      border-radius: 20vmin;
+      backface-visibility: hidden;
+      position: absolute;
+      animation-name: move;
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
+    }
+    .bokeh-background span:nth-child(1) {
+      color: #0000ff;
+      top: 47%;
+      left: 81%;
+      animation-duration: 59s;
+      animation-delay: -15s;
+      transform-origin: -11vw, 22vh;
+      box-shadow: 40vmin 0 5.240933883650751vmin currentColor;
+    }
+    .bokeh-background span:nth-child(2) {
+      color: #00ffff;
+      top: 13%;
+      left: 95%;
+      animation-duration: 29s;
+      animation-delay: -27s;
+      transform-origin: 9vw, 20vh;
+      box-shadow: 40vmin 0 5.530880287765872vmin currentColor;
+    }
+    .bokeh-background span:nth-child(3) {
+      color: #0000a0;
+      top: 61%;
+      left: 16%;
+      animation-duration: 22s;
+      animation-delay: -12s;
+      transform-origin: 11vw, 4vh;
+      box-shadow: 40vmin 0 5.35685342418042vmin currentColor;
+    }
+    .bokeh-background span:nth-child(4) {
+      color: #0000ff;
+      top: 69%;
+      left: 3%;
+      animation-duration: 44s;
+      animation-delay: -23s;
+      transform-origin: 12vw, -9vh;
+      box-shadow: 40vmin 0 5.690102546660144vmin currentColor;
+    }
+    .bokeh-background span:nth-child(5) {
+      color: #00ffff;
+      top: 55%;
+      left: 54%;
+      animation-duration: 24s;
+      animation-delay: -27s;
+      transform-origin: 4vw, 13vh;
+      box-shadow: 40vmin 0 5.854223128838727vmin currentColor;
+    }
+    .bokeh-background span:nth-child(6) {
+      color: #0000ff;
+      top: 89%;
+      left: 22%;
+      animation-duration: 24s;
+      animation-delay: -7s;
+      transform-origin: 10vw, -23vh;
+      box-shadow: 40vmin 0 5.240171563218151vmin currentColor;
+    }
+    .bokeh-background span:nth-child(7) {
+      color: #0000a0;
+      top: 10%;
+      left: 63%;
+      animation-duration: 47s;
+      animation-delay: -32s;
+      transform-origin: -13vw, -10vh;
+      box-shadow: 40vmin 0 5.959402759856022vmin currentColor;
+    }
+    .bokeh-background span:nth-child(8) {
+      color: #0000a0;
+      top: 12%;
+      left: 23%;
+      animation-duration: 50s;
+      animation-delay: -15s;
+      transform-origin: -20vw, 6vh;
+      box-shadow: 40vmin 0 5.737562778703828vmin currentColor;
+    }
+    .bokeh-background span:nth-child(9) {
+      color: #00ffff;
+      top: 10%;
+      left: 62%;
+      animation-duration: 32s;
+      animation-delay: -32s;
+      transform-origin: -23vw, 14vh;
+      box-shadow: 40vmin 0 5.1263953514610545vmin currentColor;
+    }
+    .bokeh-background span:nth-child(10) {
+      color: #0000ff;
+      top: 76%;
+      left: 39%;
+      animation-duration: 41s;
+      animation-delay: -20s;
+      transform-origin: 12vw, 7vh;
+      box-shadow: 40vmin 0 5.394372218413482vmin currentColor;
+    }
+    .bokeh-background span:nth-child(11) {
+      color: #0000a0;
+      top: 40%;
+      left: 4%;
+      animation-duration: 30s;
+      animation-delay: -33s;
+      transform-origin: -3vw, 20vh;
+      box-shadow: 40vmin 0 5.345597994598813vmin currentColor;
+    }
+    .bokeh-background span:nth-child(12) {
+      color: #0000a0;
+      top: 48%;
+      left: 25%;
+      animation-duration: 58s;
+      animation-delay: -10s;
+      transform-origin: 14vw, -5vh;
+      box-shadow: 40vmin 0 5.539441886971114vmin currentColor;
+    }
+    .bokeh-background span:nth-child(13) {
+      color: #0000a0;
+      top: 56%;
+      left: 76%;
+      animation-duration: 51s;
+      animation-delay: -34s;
+      transform-origin: -7vw, 20vh;
+      box-shadow: 40vmin 0 5.219818414389589vmin currentColor;
+    }
+    .bokeh-background span:nth-child(14) {
+      color: #00ffff;
+      top: 88%;
+      left: 75%;
+      animation-duration: 13s;
+      animation-delay: -34s;
+      transform-origin: -8vw, 19vh;
+      box-shadow: 40vmin 0 5.91917203248637vmin currentColor;
+    }
+    .bokeh-background span:nth-child(15) {
+      color: #00ffff;
+      top: 95%;
+      left: 40%;
+      animation-duration: 45s;
+      animation-delay: -5s;
+      transform-origin: -4vw, 18vh;
+      box-shadow: 40vmin 0 5.626752969221252vmin currentColor;
+    }
+    .bokeh-background span:nth-child(16) {
+      color: #00ffff;
+      top: 99%;
+      left: 50%;
+      animation-duration: 38s;
+      animation-delay: -31s;
+      transform-origin: 8vw, -8vh;
+      box-shadow: 40vmin 0 5.512272431752054vmin currentColor;
+    }
+    .bokeh-background span:nth-child(17) {
+      color: #0000a0;
+      top: 48%;
+      left: 45%;
+      animation-duration: 29s;
+      animation-delay: -16s;
+      transform-origin: -10vw, -2vh;
+      box-shadow: 40vmin 0 5.241911208266604vmin currentColor;
+    }
+    .bokeh-background span:nth-child(18) {
+      color: #0000ff;
+      top: 17%;
+      left: 13%;
+      animation-duration: 59s;
+      animation-delay: -14s;
+      transform-origin: -16vw, 10vh;
+      box-shadow: 40vmin 0 5.725255956299155vmin currentColor;
+    }
+    .bokeh-background span:nth-child(19) {
+      color: #00ffff;
+      top: 98%;
+      left: 64%;
+      animation-duration: 51s;
+      animation-delay: -28s;
+      transform-origin: 5vw, 2vh;
+      box-shadow: 40vmin 0 5.455136771036518vmin currentColor;
+    }
+    .bokeh-background span:nth-child(20) {
+      color: #00ffff;
+      top: 2%;
+      left: 52%;
+      animation-duration: 29s;
+      animation-delay: -38s;
+      transform-origin: 17vw, 23vh;
+      box-shadow: 40vmin 0 5.927937219368895vmin currentColor;
+    }
+    </style>
