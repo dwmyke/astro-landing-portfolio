@@ -1,243 +1,198 @@
 ---
-import HeroImage from "./hero-image.astro";
+import HeroImage from "./hero-image.astro"
 
 ---
 
-
-<div id="bokeh-bg" class="absolute inset-0" >
-  
-  <div class="bokeh-background 
-  bg-[url('/assets/images/hero/gUy9Qw50YO-1200.jpeg')] 
-  bg-no-repeat 
-  bg-cover 
-  bg-indigo-900 
-  bg-blend-soft-light
+<div id="bokeh-bg" class="absolute inset-0 
+  bg-indigo-900
   backdrop-blur-3xl 
-  absolute 
-  inset-0">
-   
-    
-  
-  <span class="mix-blend-multiply"></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    
-  </div>
-  
+">
+
+<div class="bokeh-background -z-50 mix-blend-soft-light
+">
+<HeroImage />
+
+    <span class="mix-blend-hard-light"></span>
+    <span class="mix-blend-hard-light"></span>
+    <span class="mix-blend-hard-light"></span>
+    <span class="mix-blend-hard-light"></span>
+    <span class="mix-blend-hard-light"></span>
+    <span class="mix-blend-hard-light"></span>
+    <span class="mix-blend-hard-light"></span>
+    <span class="mix-blend-hard-light"></span>
+    <span class="mix-blend-hard-light"></span>
+    <span class="mix-blend-hard-light"></span>
+    <span class="mix-blend-hard-light"></span>
+    <span class="mix-blend-hard-light"></span>
+    <span class="mix-blend-hard-light"></span>
+    <span class="mix-blend-hard-light"></span>
+    <span class="mix-blend-hard-light"></span>
+ </div>
 </div>
 
-  <style>
+ <style>
     @keyframes move {
-      0%{
-        transform: translate3d(0,0,1px) rotate(360deg);
-      }
+    100% {
+        transform: translate3d(0, 0, 1px) rotate(360deg);
     }
+}
 
-    .bokeh-background span {
-      width: 20vmin;
-      height: 20vmin;
-      border-radius: 20vmin;
-      backface-visibility: hidden;
-      position: absolute;
-      animation-name: move;
-      animation-timing-function: linear;
-      animation-iteration-count: infinite;
-    }
-    .bokeh-background span:nth-child(1) {
-      color: #0000ff;
-      top: 47%;
-      left: 81%;
-      animation-duration: 59s;
-      animation-delay: -15s;
-      transform-origin: -11vw, 22vh;
-      box-shadow: 40vmin 0 5.240933883650751vmin currentColor;
-    }
-    .bokeh-background span:nth-child(2) {
-      color: #00ffff;
-      top: 13%;
-      left: 95%;
-      animation-duration: 29s;
-      animation-delay: -27s;
-      transform-origin: 9vw, 20vh;
-      box-shadow: 40vmin 0 5.530880287765872vmin currentColor;
-    }
-    .bokeh-background span:nth-child(3) {
-      color: #0000a0;
-      top: 61%;
-      left: 16%;
-      animation-duration: 22s;
-      animation-delay: -12s;
-      transform-origin: 11vw, 4vh;
-      box-shadow: 40vmin 0 5.35685342418042vmin currentColor;
-    }
-    .bokeh-background span:nth-child(4) {
-      color: #0000ff;
-      top: 69%;
-      left: 3%;
-      animation-duration: 44s;
-      animation-delay: -23s;
-      transform-origin: 12vw, -9vh;
-      box-shadow: 40vmin 0 5.690102546660144vmin currentColor;
-    }
-    .bokeh-background span:nth-child(5) {
-      color: #00ffff;
-      top: 55%;
-      left: 54%;
-      animation-duration: 24s;
-      animation-delay: -27s;
-      transform-origin: 4vw, 13vh;
-      box-shadow: 40vmin 0 5.854223128838727vmin currentColor;
-    }
-    .bokeh-background span:nth-child(6) {
-      color: #0000ff;
-      top: 89%;
-      left: 22%;
-      animation-duration: 24s;
-      animation-delay: -7s;
-      transform-origin: 10vw, -23vh;
-      box-shadow: 40vmin 0 5.240171563218151vmin currentColor;
-    }
-    .bokeh-background span:nth-child(7) {
-      color: #0000a0;
-      top: 10%;
-      left: 63%;
-      animation-duration: 47s;
-      animation-delay: -32s;
-      transform-origin: -13vw, -10vh;
-      box-shadow: 40vmin 0 5.959402759856022vmin currentColor;
-    }
-    .bokeh-background span:nth-child(8) {
-      color: #0000a0;
-      top: 12%;
-      left: 23%;
-      animation-duration: 50s;
-      animation-delay: -15s;
-      transform-origin: -20vw, 6vh;
-      box-shadow: 40vmin 0 5.737562778703828vmin currentColor;
-    }
-    .bokeh-background span:nth-child(9) {
-      color: #00ffff;
-      top: 10%;
-      left: 62%;
-      animation-duration: 32s;
-      animation-delay: -32s;
-      transform-origin: -23vw, 14vh;
-      box-shadow: 40vmin 0 5.1263953514610545vmin currentColor;
-    }
-    .bokeh-background span:nth-child(10) {
-      color: #0000ff;
-      top: 76%;
-      left: 39%;
-      animation-duration: 41s;
-      animation-delay: -20s;
-      transform-origin: 12vw, 7vh;
-      box-shadow: 40vmin 0 5.394372218413482vmin currentColor;
-    }
-    .bokeh-background span:nth-child(11) {
-      color: #0000a0;
-      top: 40%;
-      left: 4%;
-      animation-duration: 30s;
-      animation-delay: -33s;
-      transform-origin: -3vw, 20vh;
-      box-shadow: 40vmin 0 5.345597994598813vmin currentColor;
-    }
-    .bokeh-background span:nth-child(12) {
-      color: #0000a0;
-      top: 48%;
-      left: 25%;
-      animation-duration: 58s;
-      animation-delay: -10s;
-      transform-origin: 14vw, -5vh;
-      box-shadow: 40vmin 0 5.539441886971114vmin currentColor;
-    }
-    .bokeh-background span:nth-child(13) {
-      color: #0000a0;
-      top: 56%;
-      left: 76%;
-      animation-duration: 51s;
-      animation-delay: -34s;
-      transform-origin: -7vw, 20vh;
-      box-shadow: 40vmin 0 5.219818414389589vmin currentColor;
-    }
-    .bokeh-background span:nth-child(14) {
-      color: #00ffff;
-      top: 88%;
-      left: 75%;
-      animation-duration: 13s;
-      animation-delay: -34s;
-      transform-origin: -8vw, 19vh;
-      box-shadow: 40vmin 0 5.91917203248637vmin currentColor;
-    }
-    .bokeh-background span:nth-child(15) {
-      color: #00ffff;
-      top: 95%;
-      left: 40%;
-      animation-duration: 45s;
-      animation-delay: -5s;
-      transform-origin: -4vw, 18vh;
-      box-shadow: 40vmin 0 5.626752969221252vmin currentColor;
-    }
-    .bokeh-background span:nth-child(16) {
-      color: #00ffff;
-      top: 99%;
-      left: 50%;
-      animation-duration: 38s;
-      animation-delay: -31s;
-      transform-origin: 8vw, -8vh;
-      box-shadow: 40vmin 0 5.512272431752054vmin currentColor;
-    }
-    .bokeh-background span:nth-child(17) {
-      color: #0000a0;
-      top: 48%;
-      left: 45%;
-      animation-duration: 29s;
-      animation-delay: -16s;
-      transform-origin: -10vw, -2vh;
-      box-shadow: 40vmin 0 5.241911208266604vmin currentColor;
-    }
-    .bokeh-background span:nth-child(18) {
-      color: #0000ff;
-      top: 17%;
-      left: 13%;
-      animation-duration: 59s;
-      animation-delay: -14s;
-      transform-origin: -16vw, 10vh;
-      box-shadow: 40vmin 0 5.725255956299155vmin currentColor;
-    }
-    .bokeh-background span:nth-child(19) {
-      color: #00ffff;
-      top: 98%;
-      left: 64%;
-      animation-duration: 51s;
-      animation-delay: -28s;
-      transform-origin: 5vw, 2vh;
-      box-shadow: 40vmin 0 5.455136771036518vmin currentColor;
-    }
-    .bokeh-background span:nth-child(20) {
-      color: #00ffff;
-      top: 2%;
-      left: 52%;
-      animation-duration: 29s;
-      animation-delay: -38s;
-      transform-origin: 17vw, 23vh;
-      box-shadow: 40vmin 0 5.927937219368895vmin currentColor;
-    }
-    </style>
+.bokeh-background {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background: #1a237e;
+    overflow: hidden;
+}
+
+.bokeh-background span {
+    width: 39vmin;
+    height: 39vmin;
+    border-radius: 39vmin;
+    backface-visibility: hidden;
+    position: absolute;
+    animation: move;
+    animation-duration: 14;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+
+.bokeh-background span:nth-child(0) {
+    color: #8742f5;
+    top: 83%;
+    left: 74%;
+    animation-duration: 274s;
+    animation-delay: -202s;
+    transform-origin: -21vw -12vh;
+    box-shadow: 78vmin 0 10.73717365592483vmin currentColor;
+}
+.bokeh-background span:nth-child(1) {
+    color: #8742f5;
+    top: 37%;
+    left: 87%;
+    animation-duration: 355s;
+    animation-delay: -145s;
+    transform-origin: -16vw -2vh;
+    box-shadow: 78vmin 0 9.948234488788025vmin currentColor;
+}
+.bokeh-background span:nth-child(2) {
+    color: #8742f5;
+    top: 47%;
+    left: 99%;
+    animation-duration: 151s;
+    animation-delay: -263s;
+    transform-origin: -12vw 7vh;
+    box-shadow: 78vmin 0 9.99271853324269vmin currentColor;
+}
+.bokeh-background span:nth-child(3) {
+    color: #fb8888;
+    top: 33%;
+    left: 84%;
+    animation-duration: 297s;
+    animation-delay: -130s;
+    transform-origin: -18vw 3vh;
+    box-shadow: 78vmin 0 10.680679947139247vmin currentColor;
+}
+.bokeh-background span:nth-child(4) {
+    color: #ff6190;
+    top: 12%;
+    left: 83%;
+    animation-duration: 240s;
+    animation-delay: -135s;
+    transform-origin: 2vw 22vh;
+    box-shadow: 78vmin 0 10.277403345699188vmin currentColor;
+}
+.bokeh-background span:nth-child(5) {
+    color: #ff6190;
+    top: 72%;
+    left: 61%;
+    animation-duration: 176s;
+    animation-delay: -37s;
+    transform-origin: 6vw -4vh;
+    box-shadow: 78vmin 0 9.967869850171965vmin currentColor;
+}
+.bokeh-background span:nth-child(6) {
+    color: #8742f5;
+    top: 79%;
+    left: 55%;
+    animation-duration: 109s;
+    animation-delay: -122s;
+    transform-origin: 10vw -14vh;
+    box-shadow: 78vmin 0 9.778575971518745vmin currentColor;
+}
+.bokeh-background span:nth-child(7) {
+    color: #fb8888;
+    top: 35%;
+    left: 2%;
+    animation-duration: 287s;
+    animation-delay: -162s;
+    transform-origin: 13vw -23vh;
+    box-shadow: 78vmin 0 9.888984786547525vmin currentColor;
+}
+.bokeh-background span:nth-child(8) {
+    color: #ff6190;
+    top: 76%;
+    left: 71%;
+    animation-duration: 263s;
+    animation-delay: -84s;
+    transform-origin: -24vw 17vh;
+    box-shadow: 78vmin 0 10.206027225264842vmin currentColor;
+}
+.bokeh-background span:nth-child(9) {
+    color: #ff6190;
+    top: 98%;
+    left: 65%;
+    animation-duration: 262s;
+    animation-delay: -125s;
+    transform-origin: 22vw -10vh;
+    box-shadow: -78vmin 0 10.139998527858403vmin currentColor;
+}
+.bokeh-background span:nth-child(10) {
+    color: #ff6190;
+    top: 90%;
+    left: 48%;
+    animation-duration: 62s;
+    animation-delay: -174s;
+    transform-origin: 8vw 1vh;
+    box-shadow: -78vmin 0 10.365475264172503vmin currentColor;
+}
+.bokeh-background span:nth-child(11) {
+    color: #8742f5;
+    top: 28%;
+    left: 83%;
+    animation-duration: 228s;
+    animation-delay: -281s;
+    transform-origin: -11vw -13vh;
+    box-shadow: -78vmin 0 10.59233053693611vmin currentColor;
+}
+.bokeh-background span:nth-child(12) {
+    color: #fb8888;
+    top: 70%;
+    left: 58%;
+    animation-duration: 43s;
+    animation-delay: -32s;
+    transform-origin: 19vw -14vh;
+    box-shadow: 78vmin 0 10.481343426387014vmin currentColor;
+}
+.bokeh-background span:nth-child(13) {
+    color: #fb8888;
+    top: 41%;
+    left: 42%;
+    animation-duration: 114s;
+    animation-delay: -107s;
+    transform-origin: -5vw 16vh;
+    box-shadow: 78vmin 0 10.591024921700757vmin currentColor;
+}
+.bokeh-background span:nth-child(14) {
+    color: #ff6190;
+    top: 90%;
+    left: 49%;
+    animation-duration: 314s;
+    animation-delay: -156s;
+    transform-origin: 9vw -11vh;
+    box-shadow: 78vmin 0 10.25431220911229vmin currentColor;
+}
+ </style>
