@@ -3,6 +3,7 @@ import { generateImage } from "astro-eleventy-img";
 import { Icon } from "astro-icon";
 import HeroImage from "~/components/hero-image.astro";
 import BokehBg from "./bokeh-bg.astro";
+import Modal from "./modal.astro";
 
 const widths = [450, 800];
 const sizes = "(min-width: 640px) 42vw, 67vw";
@@ -59,6 +60,7 @@ const pngSrcset = png.map(({ srcset }) => srcset).join(",");
     </picture>
     <div class="bg-gradient-to-r from-yellow-600 to-red-600 via-orange-800 hover:bg-gradient-to-r hover:from-slate-900 hover:via-purple-900 hover:to-slate-900 mt-6 py-1 font-bold uppercase text-center text-xl lg:text-2xl rounded-full ">Play Demo</div>
   </a>
+  <Modal />
   </div>
 </section>
 

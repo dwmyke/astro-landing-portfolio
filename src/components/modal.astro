@@ -1,0 +1,76 @@
+<a data-micromodal-trigger="modal-1" href='javascript:;'>Open Modal Dialog</a>
+
+<div class="micromodal" id="modal-1" aria-hidden="true">
+  <div class="micromodal__overlay bg-default" tabindex="-1" data-micromodal-close>
+    <div class="micromodal__container bg-transparent" role="dialog" aria-modal="true" aria-labelledby="modal-1-title">
+      <button aria-label="Close modal" data-micromodal-close>X</button>
+      <p>hi there, I'm some modal content!</p>
+    </div>
+  </div>
+</div>
+
+<style>
+    body {
+  /* make page scrollable to test disableScroll works */
+  height: 2000px;
+}
+
+.micromodal {
+  display: none;
+}
+
+.micromodal.is-open {
+  display: block;
+}
+
+.micromodal__overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.micromodal__container {
+  box-sizing: border-box;
+  overflow-y: auto;
+  max-width: 500px;
+  max-height: 100vh;
+  padding: 30px;
+  border-radius: 4px;
+}
+
+.micromodal[aria-hidden="false"] .micromodal__overlay {
+  animation: microModalFadeIn .2s cubic-bezier(0.0, 0.0, 0.2, 1);
+}
+
+.micromodal[aria-hidden="false"] .micromodal__container {
+  animation: microModalSlideIn .2s cubic-bezier(0, 0, .2, 1);
+}
+
+.micromodal .micromodal__container,
+.micromodal .micromodal__overlay {
+  will-change: transform;
+}
+
+@keyframes microModalFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes microModalSlideIn {
+  from { transform: translateY(15%); }
+  to { transform: translateY(0); }
+}
+</style>
+
+<script>
+    import micromodal from "micromodal";
+
+micromodal.init({
+  disableScroll: true
+});
+</script>
